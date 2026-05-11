@@ -1,50 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.google.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* Surfaces */
   --color-bg: #FAF9F7;
   --color-bg-alt: #F3F0EC;
   --color-bg-raised: #FFFFFF;
   --color-bg-inset: #EBE6DF;
-
-  /* Text */
   --color-text-1: #1C1917;
   --color-text-2: #57534E;
   --color-text-3: #A8A29E;
   --color-text-inv: #FAF9F7;
-
-  /* Accent: Terracotta */
   --color-accent: #C4673A;
   --color-accent-l: #D07850;
   --color-accent-d: #9E5230;
-
-  /* Feedback */
   --color-green: #2A7A57;
   --color-red: #C23B3B;
   --color-amber: #C88A0A;
-
-  /* Dark / Espresso */
   --color-espresso: #16120E;
-
-  /* Typography */
   --font-sans: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
-
-  /* Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-2xl: 24px;
-
-  /* Shadows (warm-tinted) */
   --shadow-sm: 0 1px 3px rgba(28,25,23,0.07);
   --shadow-md: 0 4px 16px rgba(28,25,23,0.09);
   --shadow-lg: 0 8px 32px rgba(28,25,23,0.13);
   --shadow-xl: 0 16px 48px rgba(28,25,23,0.18);
+
+  /* Motion design tokens */
+  --ease-out-quart: cubic-bezier(.165, .84, .44, 1);
+  --ease-out-expo: cubic-bezier(.19, 1, .22, 1);
+  --ease-in-out-cubic: cubic-bezier(.645, .045, .355, 1);
+  --dur-1: 120ms;
+  --dur-2: 180ms;
+  --dur-3: 240ms;
+  --dur-4: 300ms;
 }
 
-/* ── Base ────────────────────────────────────────────── */
+/* ── Base ─────────────────────────────────────────── */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -66,10 +60,15 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Keyframes ───────────────────────────────────────── */
+::selection {
+  background: rgba(196, 103, 58, 0.18);
+  color: #1C1917;
+}
+
+/* ── Keyframes ────────────────────────────────────── */
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.75); }
+  50% { opacity: 0.45; transform: scale(0.72); }
 }
 
 @keyframes marquee-scroll {
@@ -81,24 +80,67 @@ body {
   to { transform: rotate(360deg); }
 }
 
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
-
-@keyframes orb-drift {
+/* Aurora orb animations — slow drift, pure CSS for performance */
+@keyframes aurora-1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -20px) scale(1.06); }
-  66% { transform: translate(-20px, 15px) scale(0.95); }
+  33% { transform: translate(40px, -30px) scale(1.06); }
+  66% { transform: translate(-25px, 20px) scale(0.94); }
 }
 
-@keyframes draw-in {
-  from { stroke-dashoffset: 1000; }
-  to { stroke-dashoffset: 0; }
+@keyframes aurora-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-35px, 25px) scale(0.92); }
+  66% { transform: translate(30px, -20px) scale(1.08); }
 }
 
-/* ── Selection ───────────────────────────────────────── */
-::selection {
-  background: rgba(196, 103, 58, 0.18);
-  color: #1C1917;
+@keyframes aurora-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, -15px) scale(1.04); }
+}
+
+.aurora-orb-1 { animation: aurora-1 18s ease-in-out infinite; }
+.aurora-orb-2 { animation: aurora-2 24s ease-in-out infinite; }
+.aurora-orb-3 { animation: aurora-3 14s ease-in-out infinite; }
+
+/* Grain overlay — subtle noise texture for premium feel */
+.grain-overlay {
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  pointer-events: none;
+}
+
+/* Shimmer sweep — button hover effect */
+@keyframes shimmer-sweep {
+  from { transform: translateX(-100%) skewX(-15deg); }
+  to { transform: translateX(200%) skewX(-15deg); }
+}
+
+.btn-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.22), transparent);
+  transform: translateX(-100%) skewX(-15deg);
+  pointer-events: none;
+}
+
+.btn-shimmer:hover::after {
+  animation: shimmer-sweep 0.55s cubic-bezier(.165,.84,.44,1) forwards;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-orb-1,
+  .aurora-orb-2,
+  .aurora-orb-3 {
+    animation: none !important;
+  }
+  .btn-shimmer::after {
+    display: none;
+  }
 }
