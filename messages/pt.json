@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "home": {
+      "title": "Seny — Sistemas Operacionais para Negócios · Valencia",
+      "description": "Encontramos onde você perde dinheiro sem saber e instalamos o processo que fecha o vazamento. Hotelaria, restauração e clínicas em Valencia, Espanha."
+    },
+    "servicios": {
+      "title": "Serviços — Seny · Valencia",
+      "description": "Catálogo completo de serviços Seny: cardápio digital trilíngue, guia digital do hóspede e lembretes automáticos."
+    },
+    "casos": {
+      "title": "Casos de Uso — Seny · Valencia",
+      "description": "Resultados reais: restaurantes com +40% pedidos turistas, hostels com −60% perguntas WhatsApp, clínicas com −70% no-shows."
+    },
+    "contacto": {
+      "title": "Contato — Seny · Valencia",
+      "description": "Solicite seu diagnóstico gratuito. Analisamos seu negócio e dizemos exatamente onde está o vazamento."
+    }
+  },
+  "nav": {
+    "servicios": "Serviços",
+    "casos": "Casos",
+    "contacto": "Contato",
+    "cta": "Diagnóstico gratuito"
+  },
+  "hero": {
+    "badge": "Valencia · Hotelaria · Restauração · Clínicas",
+    "title1": "Encontramos onde você",
+    "title2": "perde dinheiro",
+    "title3": "sem saber.",
+    "subtitle": "Instalamos o processo que fecha o vazamento. Sem jargão técnico. Sem templates genéricos. Ficamos até funcionar.",
+    "cta_primary": "Solicitar diagnóstico gratuito",
+    "cta_secondary": "Ver serviços"
+  },
+  "trust": {
+    "stat1_value": "5",
+    "stat1_label": "línguas nativas",
+    "stat2_value": "3",
+    "stat2_label": "nichos especializados",
+    "stat3_value": "100%",
+    "stat3_label": "instalação incluída"
+  },
+  "niches": {
+    "eyebrow": "Três nichos. Um método.",
+    "heading": "Onde seu negócio sangra.",
+    "restaurants": {
+      "category": "Restaurantes & Bares",
+      "title": "Seu cardápio é um PDF no Google Drive",
+      "pain": "Os turistas alemães que chegam em junho nem o abrem. Você perde pedidos sem saber.",
+      "solution": "Cardápio digital trilíngue + QR + Google Business otimizado",
+      "price": "a partir de €350 · pagamento único",
+      "cta": "Ver serviço"
+    },
+    "hotels": {
+      "category": "Hotelaria",
+      "title": "O hóspede chega às 23h sem o código da porta",
+      "pain": "Escreve no WhatsApp. 20 min sem resposta = uma estrela a menos no Booking.",
+      "solution": "Guia digital pós-reserva em 5 idiomas",
+      "price": "a partir de €280 · pagamento único",
+      "cta": "Ver serviço"
+    },
+    "clinics": {
+      "category": "Clínicas",
+      "title": "€600–800/mês em no-shows evitáveis",
+      "pain": "A recepcionista passa 2h por dia confirmando consultas manualmente.",
+      "solution": "Lembretes automáticos WhatsApp sem tocar em dados clínicos",
+      "price": "€250 setup + €70/mês",
+      "cta": "Ver serviço"
+    }
+  },
+  "why": {
+    "eyebrow": "Por que Seny",
+    "heading": "Não recomendamos. Instalamos.",
+    "reasons": [
+      {
+        "title": "Equipe de hotelaria real",
+        "desc": "Ex ibis, Travelodge, Moontels, Sercotel. Sabemos como um hotel funciona por dentro."
+      },
+      {
+        "title": "5 línguas nativas",
+        "desc": "Espanhol, inglês, francês, italiano, português. Não tradução automática — comunicação real."
+      },
+      {
+        "title": "UX de verdade",
+        "desc": "Sem templates genéricos. Cada solução adaptada ao negócio, à equipe, ao cliente."
+      },
+      {
+        "title": "Ficamos até funcionar",
+        "desc": "Instalamos, treinamos e acompanhamos. Não desaparecemos após a entrega."
+      }
+    ]
+  },
+  "howItWorks": {
+    "eyebrow": "O processo",
+    "heading": "Três passos. Sem complicações.",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Diagnóstico gratuito",
+        "desc": "Chamada de 30 min. Identificamos exatamente onde está o vazamento no seu negócio."
+      },
+      {
+        "num": "02",
+        "title": "Instalação",
+        "desc": "Configuramos, conectamos e testamos. Você não precisa fazer nada técnico."
+      },
+      {
+        "num": "03",
+        "title": "Funcionando",
+        "desc": "Você recebe o sistema pronto, documentado e com suporte direto pelo WhatsApp."
+      }
+    ]
+  },
+  "marquee": {
+    "label": "Trabalhamos com as melhores ferramentas"
+  },
+  "cta_section": {
+    "heading": "Quanto você está perdendo sem saber?",
+    "subtitle": "O diagnóstico é gratuito. A chamada dura 30 minutos. Sem compromisso.",
+    "button": "Solicitar diagnóstico gratuito"
+  },
+  "footer": {
+    "tagline": "Encontramos onde você perde dinheiro sem saber.",
+    "col_services": "Serviços",
+    "col_niches": "Nichos",
+    "col_legal": "Legal",
+    "links_services": ["Cardápio digital", "Guia do hóspede", "Lembretes auto"],
+    "links_niches": ["Restaurantes", "Hotelaria", "Clínicas"],
+    "links_legal": ["Privacidade", "Termos", "Cookies"],
+    "copyright": "Seny Sistemas Operacionais · Valencia, Espanha · 2026"
+  },
+  "servicios_page": {
+    "eyebrow": "Catálogo de serviços",
+    "heading": "Soluções que se instalam, não se recomendam.",
+    "subtitle": "Cada serviço inclui configuração, testes e treinamento básico. Sem custos ocultos.",
+    "restaurants": {
+      "eyebrow": "Restaurantes & Bares",
+      "heading": "Cardápio digital trilíngue",
+      "pain_title": "O problema",
+      "pain_desc": "Seu cardápio é um PDF desatualizado enviado pelo WhatsApp. Os turistas não sabem o que pedir.",
+      "solution_title": "A solução",
+      "features": [
+        "Cardápio digital acessível por QR em 3 idiomas",
+        "Google Business otimizado com fotos e horários",
+        "Painel admin para atualizar sem ajuda técnica",
+        "Compatível com iPhone e Android sem app"
+      ],
+      "price": "a partir de €350",
+      "price_note": "Pagamento único · Sem comissões · Sem assinatura obrigatória"
+    },
+    "hotels": {
+      "eyebrow": "Hostels · Apart-hotéis · Boutique",
+      "heading": "Guia digital do hóspede",
+      "pain_title": "O problema",
+      "pain_desc": "O hóspede chega às 23h. Não encontra o código da porta. Escreve no WhatsApp. 20 minutos sem resposta.",
+      "solution_title": "A solução",
+      "features": [
+        "Guia digital pós-reserva em 5 idiomas",
+        "Código de acesso, WiFi, regras, checkout — tudo em um link",
+        "Enviado automaticamente após a reserva",
+        "Atualizável em tempo real sem conhecimentos técnicos"
+      ],
+      "price": "a partir de €280",
+      "price_note": "Pagamento único · Atualizações incluídas no primeiro ano"
+    },
+    "clinics": {
+      "eyebrow": "Fisioterapia · Estética · Psicologia",
+      "heading": "Lembretes automáticos WhatsApp",
+      "pain_title": "O problema",
+      "pain_desc": "Se você fatura €4.000/mês, está perdendo €600–800 em no-shows. Sua recepcionista passa 2h por dia em confirmações manuais.",
+      "solution_title": "A solução",
+      "features": [
+        "Lembrete automático 48h e 2h antes de cada consulta",
+        "Confirmação pelo WhatsApp Business",
+        "Integração com sua agenda existente",
+        "Dados clínicos nunca tocados — conformidade RGPD total"
+      ],
+      "price": "€250 setup + €70/mês",
+      "price_note": "Cancelamento com 30 dias de aviso · Sem fidelidade"
+    }
+  },
+  "casos_page": {
+    "eyebrow": "Casos de uso",
+    "heading": "Antes do Seny. Depois do Seny.",
+    "subtitle": "Resultados reais de negócios como o seu.",
+    "cases": [
+      {
+        "client": "Restaurante El Mercat",
+        "location": "Valencia, Espanha",
+        "type": "Restaurante",
+        "before_title": "Antes",
+        "before_items": [
+          "Cardápio como PDF desatualizado enviado pelo WhatsApp",
+          "Turistas indo embora sem pedir",
+          "Google Business sem fotos atualizadas",
+          "0 reservas online"
+        ],
+        "after_title": "Depois do Seny",
+        "after_items": [
+          "Cardápio digital em 3 idiomas por QR",
+          "+40% pedidos de clientes internacionais",
+          "Google Business com 4.7★",
+          "Atualizações do cardápio em menos de 5 minutos"
+        ],
+        "stat_value": "+40%",
+        "stat_label": "pedidos de turistas"
+      },
+      {
+        "client": "Hostel Casa Bori",
+        "location": "Barcelona, Espanha",
+        "type": "Hostel",
+        "before_title": "Antes",
+        "before_items": [
+          "WhatsApp do dono recebendo 20+ perguntas/dia",
+          "Hóspedes perdidos procurando o código",
+          "Avaliações 3★ por falta de informação",
+          "PDF de boas-vindas só em espanhol"
+        ],
+        "after_title": "Depois do Seny",
+        "after_items": [
+          "Guia digital em 5 idiomas enviado automaticamente",
+          "−60% perguntas repetidas no WhatsApp",
+          "Avaliações Booking de 7.8 para 9.1",
+          "Check-in autônomo 24h sem staff"
+        ],
+        "stat_value": "−60%",
+        "stat_label": "perguntas repetidas"
+      },
+      {
+        "client": "Clínica Fisio Salvo",
+        "location": "Valencia, Espanha",
+        "type": "Clínica",
+        "before_title": "Antes",
+        "before_items": [
+          "2h diárias da recepcionista em confirmações manuais",
+          "15–20% de no-shows semanais",
+          "Perda estimada de €650/mês",
+          "Sem como rastrear cancelamentos"
+        ],
+        "after_title": "Depois do Seny",
+        "after_items": [
+          "Lembretes automáticos 48h e 2h antes",
+          "−70% no-shows no primeiro mês",
+          "€640/mês recuperados",
+          "Recepcionista libera 1,5h diárias"
+        ],
+        "stat_value": "−70%",
+        "stat_label": "no-shows"
+      }
+    ]
+  },
+  "contacto_page": {
+    "eyebrow": "Diagnóstico gratuito",
+    "heading": "Conte-nos sobre o seu negócio.",
+    "subtitle": "Chamada de 30 minutos. Dizemos exatamente onde está o vazamento e o que seria necessário para fechá-lo.",
+    "form": {
+      "name_label": "Nome",
+      "name_placeholder": "Seu nome",
+      "email_label": "Email",
+      "email_placeholder": "voce@email.com",
+      "business_label": "Tipo de negócio",
+      "business_placeholder": "Selecionar...",
+      "business_options": ["Restaurante / Bar", "Hotel / Hostel / Apart-hotel", "Clínica / Fisioterapia / Estética", "Outro"],
+      "message_label": "Conte-nos sua situação",
+      "message_placeholder": "Qual é o maior problema operacional que você tem agora?",
+      "submit": "Enviar e solicitar diagnóstico",
+      "success_title": "Mensagem recebida!",
+      "success_desc": "Responderemos em menos de 24 horas."
+    },
+    "info": {
+      "email": "hola@senyops.com",
+      "whatsapp": "+34 XXX XXX XXX",
+      "location": "Valencia, Espanha",
+      "response_time": "Resposta em menos de 24h",
+      "languages": "ES · EN · FR · IT · PT"
+    }
+  }
+}
