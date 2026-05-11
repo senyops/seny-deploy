@@ -15,13 +15,18 @@
     "contacto": {
       "title": "Contatto — Seny · Valencia",
       "description": "Richiedi la tua diagnosi gratuita. Analizziamo la tua attività e ti diciamo esattamente dove si trova la fuga."
+    },
+    "sobre": {
+      "title": "Chi siamo — Seny · Valencia",
+      "description": "Siamo Breno e Juliana. Un team dell'hospitality che ha imparato la tecnologia per risolvere i problemi vissuti in prima persona."
     }
   },
   "nav": {
     "servicios": "Servizi",
     "casos": "Casi",
     "contacto": "Contatto",
-    "cta": "Diagnosi gratuita"
+    "cta": "Diagnosi gratuita",
+    "sobre": "Chi siamo"
   },
   "hero": {
     "badge": "Valencia · Ospitalità · Ristorazione · Cliniche",
@@ -124,9 +129,21 @@
     "col_services": "Servizi",
     "col_niches": "Nicchie",
     "col_legal": "Legale",
-    "links_services": ["Menu digitale", "Guida ospiti", "Promemoria auto"],
-    "links_niches": ["Ristoranti", "Ospitalità", "Cliniche"],
-    "links_legal": ["Privacy", "Termini", "Cookie"],
+    "links_services": [
+      "Menu digitale",
+      "Guida ospiti",
+      "Promemoria auto"
+    ],
+    "links_niches": [
+      "Ristoranti",
+      "Ospitalità",
+      "Cliniche"
+    ],
+    "links_legal": [
+      "Privacy",
+      "Termini",
+      "Cookie"
+    ],
     "copyright": "Seny Sistemi Operativi · Valencia, Spagna · 2026"
   },
   "servicios_page": {
@@ -260,7 +277,12 @@
       "email_placeholder": "tu@email.com",
       "business_label": "Tipo di attività",
       "business_placeholder": "Seleziona...",
-      "business_options": ["Ristorante / Bar", "Hotel / Hostel / Apart-hotel", "Clinica / Fisioterapia / Estetica", "Altro"],
+      "business_options": [
+        "Ristorante / Bar",
+        "Hotel / Hostel / Apart-hotel",
+        "Clinica / Fisioterapia / Estetica",
+        "Altro"
+      ],
       "message_label": "Descrivi la tua situazione",
       "message_placeholder": "Qual è il tuo più grande problema operativo in questo momento?",
       "submit": "Invia e richiedi diagnosi",
@@ -274,5 +296,174 @@
       "response_time": "Risposta in meno di 24h",
       "languages": "ES · EN · FR · IT · PT"
     }
+  },
+  "pricing": {
+    "eyebrow": "Prezzi trasparenti",
+    "heading": "Nessuna sorpresa. Nessuna clausola nascosta.",
+    "subtitle": "Tre prodotti. Prezzo fisso. Installazione inclusa. Senza vincoli.",
+    "badge_popular": "Più richiesto",
+    "setup": "installazione",
+    "per_month": "/mese",
+    "cta": "Richiedere questo servizio",
+    "note": "Tutti i prezzi includono IVA. Pagamento tramite bonifico o carta. Nessun contratto annuale.",
+    "products": [
+      {
+        "id": "restaurants",
+        "name": "Menu Digitale + Prenotazioni",
+        "niche": "Ristoranti · Bar · Terrazze",
+        "tagline": "Il tuo menu in 3 lingue. Prenotazioni WhatsApp. Senza commissioni.",
+        "price_setup": "400",
+        "price_monthly": "100",
+        "popular": false,
+        "delivery": "3–5 giorni",
+        "features": [
+          "Menu digitale accessibile via QR in 3 lingue",
+          "Agente WhatsApp per prenotazioni e domande frequenti",
+          "Google Business ottimizzato con foto e orari",
+          "Pannello per aggiornare il menu senza supporto tecnico",
+          "Consegna in 3–5 giorni lavorativi"
+        ]
+      },
+      {
+        "id": "hotels",
+        "name": "Reception Intelligente",
+        "niche": "Hotel · Ostelli · Appartamenti",
+        "tagline": "Agente WhatsApp multilingue. Risponde 24h in 5 lingue.",
+        "price_setup": "600",
+        "price_monthly": "180",
+        "popular": true,
+        "delivery": "5–7 giorni",
+        "features": [
+          "Agente WhatsApp in ES / EN / FR / IT / PT",
+          "Knowledge base dell'hotel configurata da noi",
+          "Integrazione Google Calendar o sistema di prenotazione",
+          "Dashboard: messaggi, lingue, ore di punta",
+          "Consegna in 5–7 giorni lavorativi"
+        ]
+      },
+      {
+        "id": "clinics",
+        "name": "Agenda Intelligente",
+        "niche": "Cliniche · Fisioterapia · Estetica",
+        "tagline": "Elimina i no-show. Libera 2h al giorno della tua receptionist.",
+        "price_setup": "700",
+        "price_monthly": "220",
+        "popular": false,
+        "delivery": "7–10 giorni",
+        "features": [
+          "Promemoria automatici 48h e 2h prima di ogni appuntamento",
+          "Conferma WhatsApp: SÌ / NO / riprogrammare",
+          "Integrazione con il tuo calendario attuale",
+          "Dashboard settimanale no-show e riprogrammazioni",
+          "Conformità GDPR totale — dati clinici mai toccati"
+        ]
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Risultati reali",
+    "heading": "Cosa dicono i nostri clienti.",
+    "subtitle": "Numeri reali. Attività reali. Valencia e dintorni.",
+    "items": [
+      {
+        "stat": "+40%",
+        "stat_label": "ordini dai turisti",
+        "quote": "Avevo un menu PDF che nessuno capiva. Ora i clienti tedeschi e francesi ordinano senza problemi. Installato in 4 giorni senza che dovessi fare nulla.",
+        "author": "Carlos M.",
+        "role": "Proprietario · Ristorante, Valencia",
+        "type": "Ristorante"
+      },
+      {
+        "stat": "−60%",
+        "stat_label": "domande WhatsApp ripetute",
+        "quote": "Il mio WhatsApp personale non suona più alle 23. La guida in 5 lingue risolve tutto prima che chiedano. Le recensioni sono salite da 7,8 a 9,1.",
+        "author": "Ana R.",
+        "role": "Direttrice · Ostello, Barcellona",
+        "type": "Ostello"
+      },
+      {
+        "stat": "€640",
+        "stat_label": "recuperati al mese in appuntamenti persi",
+        "quote": "I no-show sono calati del 70% nel primo mese. La receptionist ora ha tempo per accogliere davvero i pazienti invece di passare ore al telefono.",
+        "author": "Dr. Salvador P.",
+        "role": "Direttore · Clinica di fisioterapia, Valencia",
+        "type": "Clinica"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "Domande frequenti",
+    "heading": "Tutto quello che devi sapere.",
+    "items": [
+      {
+        "q": "Quanto tempo richiede l'installazione?",
+        "a": "Dipende dal prodotto: menu digitale in 3–5 giorni, reception intelligente in 5–7 giorni, agenda intelligente in 7–10 giorni. Dal primo pagamento al sistema funzionante."
+      },
+      {
+        "q": "Ho bisogno di competenze tecniche per usare il sistema?",
+        "a": "No. Configuriamo tutto noi. Ricevi il sistema pronto e ti spieghiamo come usarlo in 30 minuti. Poi supporto diretto via WhatsApp."
+      },
+      {
+        "q": "Posso annullare quando voglio?",
+        "a": "Sì. Senza vincoli. Abbiamo bisogno solo di 30 giorni di preavviso per i servizi mensili. Le installazioni sono un pagamento unico — nessun addebito ricorrente obbligatorio."
+      },
+      {
+        "q": "I miei dati e quelli dei miei clienti sono al sicuro?",
+        "a": "Sì. Piena conformità GDPR. Per le cliniche: i dati clinici non vengono mai toccati. Il sistema usa solo nome, telefono e orario dell'appuntamento."
+      },
+      {
+        "q": "Qual è la differenza con un'agenzia di marketing?",
+        "a": "Le agenzie raccomandano. Noi installiamo. Non lasciamo un report — restiamo finché il sistema funziona nella tua attività. E veniamo dall'hospitality."
+      },
+      {
+        "q": "Cosa succede se qualcosa si rompe dopo l'installazione?",
+        "a": "Supporto diretto via WhatsApp. Rispondiamo entro 4 ore in orario lavorativo. Se il problema è nostro, lo risolviamo senza costi aggiuntivi."
+      }
+    ]
+  },
+  "sobre_page": {
+    "eyebrow": "Il team",
+    "heading": "Dall'hospitality alla tecnologia.",
+    "subtitle": "Non siamo arrivati all'hospitality dal mondo tech. Siamo arrivati al tech dall'hospitality. Questa differenza cambia tutto.",
+    "mission_label": "La nostra missione",
+    "mission": "Trovare dove perdi denaro senza saperlo — e installare il processo che chiude la fuga.",
+    "team": [
+      {
+        "name": "Breno Sampayo",
+        "role": "CEO & Fondatore",
+        "langs": "ES · EN · FR · IT · PT",
+        "bio": "Ex ibis Styles Francia, Travelodge Valencia, Moontels e Sercotel. Sa esattamente come funziona una reception alle 3 di notte e perché i sistemi generici falliscono nell'hospitality.",
+        "detail": "Formazione UX/UI. Stack: Claude Sonnet 4.6, n8n, Make, SQL, Power BI. Ogni sistema installato da Seny è stato prima testato da Breno nel suo ambiente di prova."
+      },
+      {
+        "name": "Juliana Reimão",
+        "role": "Co-fondatrice",
+        "langs": "ES · PT",
+        "bio": "Business Intelligence e analisi dei dati operativi. Rete di contatti nell'hospitality e nelle cliniche a Valencia.",
+        "detail": "Specialista in processi clinici e relazioni con i clienti. Trasforma dati disorganizzati in dashboard comprensibili senza formazione tecnica."
+      }
+    ],
+    "values_heading": "Come lavoriamo",
+    "values": [
+      {
+        "title": "Dritti al problema",
+        "desc": "Nessun report di 40 pagine. Identifichiamo la fuga e installiamo il processo in pochi giorni."
+      },
+      {
+        "title": "Installiamo. Non raccomandiamo.",
+        "desc": "Non lasciamo un report. Restiamo finché il sistema funziona nella tua attività."
+      },
+      {
+        "title": "Pochi clienti. Serviti bene.",
+        "desc": "Massimo 5 clienti attivi. La qualità della consegna è il nostro unico asset."
+      },
+      {
+        "title": "La sequenza conta",
+        "desc": "Prima capiamo il tuo processo manuale. Poi installiamo l'automazione che lo migliora."
+      }
+    ],
+    "cta_heading": "Parliamo?",
+    "cta_sub": "30 minuti. Senza impegno. Ti diremo esattamente dov'è la fuga.",
+    "cta_button": "Richiedere diagnosi gratuita"
   }
 }

@@ -50,6 +50,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "/servicios", label: t("servicios") },
     { href: "/casos", label: t("casos") },
+    { href: "/sobre", label: t("sobre") },
     { href: "/contacto", label: t("contacto") },
   ]
 
