@@ -1,9 +1,30 @@
 "use client"
 
-import { motion, useReducedMotion } from "framer-motion"
+import { motion, useReducedMotion, useInView } from "framer-motion"
 import { useTranslations } from "next-intl"
+import { useRef, useEffect, useState } from "react"
 import { Link } from "@/i18n/navigation"
 import { IconArrowRight, IconMail } from "@tabler/icons-react"
+
+function CountUp({ to, prefix = "", suffix = "", duration = 1400 }: { to: number; prefix?: string; suffix?: string; duration?: number }) {
+  const [val, setVal] = useState(0)
+  const ref = useRef<HTMLSpanElement>(null)
+  const inView = useInView(ref, { once: true, amount: 0.5 })
+
+  useEffect(() => {
+    if (!inView) return
+    const start = performance.now()
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1)
+      const ease = 1 - Math.pow(1 - progress, 4)
+      setVal(Math.round(ease * to))
+      if (progress < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  }, [inView, to, duration])
+
+  return <span ref={ref}>{prefix}{val}{suffix}</span>
+}
 
 const EASE_OUT_EXPO = [0.19, 1, 0.22, 1] as const
 const EASE_OUT_QUART = [0.165, 0.84, 0.44, 1] as const
@@ -91,13 +112,13 @@ export default function CTASection() {
             </Link>
           </div>
 
-          {/* Results strip */}
+          {/* Results strip with CountUp */}
           <div style={{ paddingTop: "44px", borderTop: "1px solid rgba(250,249,247,0.06)", display: "flex", flexWrap: "wrap", gap: "32px 56px", justifyContent: "center" }}>
             {[
-              { val: "+40%", label: "pedidos turistas" },
-              { val: "−70%", label: "no-shows clínicas" },
-              { val: "−60%", label: "mensajes repetidos" },
-            ].map(({ val, label }, i) => (
+              { prefix: "+", to: 40, suffix: "%", label: "pedidos turistas", accent: "#C4673A" },
+              { prefix: "−", to: 70, suffix: "%", label: "no-shows clínicas", accent: "#2A7A57" },
+              { prefix: "−", to: 60, suffix: "%", label: "mensajes repetidos", accent: "#C88A0A" },
+            ].map(({ prefix, to, suffix, label, accent }, i) => (
               <motion.div
                 key={label}
                 initial={{ opacity: 0, y: 12 }}
@@ -106,7 +127,9 @@ export default function CTASection() {
                 transition={{ duration: 0.55, delay: 0.1 + i * 0.08, ease: EASE_OUT_QUART }}
                 style={{ textAlign: "center" }}
               >
-                <div style={{ fontSize: "32px", fontWeight: 800, color: "#C4673A", letterSpacing: "-0.06em", lineHeight: 1 }}>{val}</div>
+                <div style={{ fontSize: "32px", fontWeight: 800, color: accent, letterSpacing: "-0.06em", lineHeight: 1 }}>
+                  <CountUp to={to} prefix={prefix} suffix={suffix} />
+                </div>
                 <div style={{ fontSize: "10px", fontWeight: 600, color: "rgba(250,249,247,0.26)", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: "6px" }}>{label}</div>
               </motion.div>
             ))}

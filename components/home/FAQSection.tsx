@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion"
 import { useTranslations } from "next-intl"
-import { IconPlus, IconMinus } from "@tabler/icons-react"
+import { IconPlus } from "@tabler/icons-react"
 
 const EASE_OUT_QUART = [0.165, 0.84, 0.44, 1] as const
 
@@ -22,7 +22,7 @@ function FAQRow({ item, index, reduced }: { item: FAQItem; index: number; reduce
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.55, delay: index * 0.06, ease: EASE_OUT_QUART }}
       style={{
-        borderBottom: "1px solid rgba(22,18,14,0.08)",
+        borderBottom: "1px solid var(--faq-border)",
         overflow: "hidden",
       }}
     >
@@ -47,31 +47,32 @@ function FAQRow({ item, index, reduced }: { item: FAQItem; index: number; reduce
           fontSize: "15px",
           fontWeight: 700,
           letterSpacing: "-0.025em",
-          color: "#16120E",
+          color: "var(--faq-q)",
           lineHeight: 1.4,
           flex: 1,
           transition: "color 0.18s ease",
         }}>
           {item.q}
         </span>
-        <div style={{
-          width: "32px",
-          height: "32px",
-          borderRadius: "50%",
-          background: open ? "#C4673A" : "rgba(196,103,58,0.10)",
-          border: open ? "none" : "1px solid rgba(196,103,58,0.20)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexShrink: 0,
-          color: open ? "#fff" : "#C4673A",
-          transition: "background 0.2s ease, color 0.2s ease, border-color 0.2s ease",
-        }}>
-          {open
-            ? <IconMinus size={14} />
-            : <IconPlus size={14} />
-          }
-        </div>
+        {/* Rotating plus icon */}
+        <motion.div
+          animate={{ rotate: open ? 45 : 0 }}
+          transition={reduced ? { duration: 0 } : { duration: 0.22, ease: EASE_OUT_QUART }}
+          style={{
+            width: "32px",
+            height: "32px",
+            borderRadius: "50%",
+            background: open ? "#C4673A" : "rgba(196,103,58,0.10)",
+            border: open ? "none" : "1px solid rgba(196,103,58,0.20)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
+            color: open ? "#fff" : "#C4673A",
+          }}
+        >
+          <IconPlus size={14} />
+        </motion.div>
       </button>
 
       <AnimatePresence initial={false}>
@@ -91,7 +92,7 @@ function FAQRow({ item, index, reduced }: { item: FAQItem; index: number; reduce
               paddingRight: "48px",
               fontSize: "14px",
               lineHeight: 1.78,
-              color: "rgba(22,18,14,0.55)",
+              color: "var(--faq-a)",
             }}>
               {item.a}
             </p>
@@ -109,10 +110,11 @@ export default function FAQSection() {
 
   return (
     <section style={{
-      background: "#FAF9F7",
+      background: "var(--bg-page)",
       padding: "120px 0",
       position: "relative",
       overflow: "hidden",
+      transition: "background 0.25s ease",
     }}>
       {/* Warm orb bottom left */}
       <div aria-hidden="true" style={{
@@ -151,7 +153,7 @@ export default function FAQSection() {
               fontWeight: 800,
               letterSpacing: "-0.05em",
               lineHeight: 1.08,
-              color: "#16120E",
+              color: "var(--faq-q)",
               marginBottom: "24px",
             }}>
               {t("heading")}
@@ -166,7 +168,7 @@ export default function FAQSection() {
           </motion.div>
 
           {/* Right: accordion */}
-          <div style={{ borderTop: "1px solid rgba(22,18,14,0.08)" }}>
+          <div style={{ borderTop: "1px solid var(--faq-border)" }}>
             {items.map((item, i) => (
               <FAQRow
                 key={i}

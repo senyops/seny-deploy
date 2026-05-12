@@ -25,7 +25,7 @@ export default function HowItWorksSection() {
   return (
     <section
       ref={sectionRef}
-      style={{ background: "#F3F0EC", padding: "120px 0", borderTop: "1px solid rgba(28,25,23,0.07)", position: "relative", overflow: "hidden" }}
+      style={{ background: "var(--bg-alt)", padding: "120px 0", borderTop: "1px solid var(--border-subtle)", position: "relative", overflow: "hidden" }}
     >
       {/* Background texture */}
       <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(circle, rgba(28,25,23,0.035) 1px, transparent 1px)", backgroundSize: "22px 22px", pointerEvents: "none" }} />
@@ -40,8 +40,8 @@ export default function HowItWorksSection() {
           style={{ marginBottom: "80px", textAlign: "center" }}
         >
           <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#C4673A", marginBottom: "16px" }}>{t("eyebrow")}</p>
-          <h2 style={{ fontSize: "clamp(32px, 3.2vw, 50px)", fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 1.06, color: "#1C1917", marginBottom: "16px" }}>{t("heading")}</h2>
-          <p style={{ fontSize: "15px", color: "#78716C", maxWidth: "340px", margin: "0 auto", lineHeight: 1.72 }}>Sin burocracia. Sin técnica. Solo resultados.</p>
+          <h2 style={{ fontSize: "clamp(32px, 3.2vw, 50px)", fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 1.06, color: "var(--text-1)", marginBottom: "16px" }}>{t("heading")}</h2>
+          <p style={{ fontSize: "15px", color: "var(--text-2b)", maxWidth: "340px", margin: "0 auto", lineHeight: 1.72 }}>Sin burocracia. Sin técnica. Solo resultados.</p>
         </motion.div>
 
         {/* Steps with connector line */}
@@ -69,7 +69,7 @@ export default function HowItWorksSection() {
                 <motion.div
                   whileHover={shouldReduce ? {} : { y: -5, boxShadow: "0 20px 56px rgba(28,25,23,0.14)" }}
                   transition={{ duration: 0.25, ease: [0.165, 0.84, 0.44, 1] }}
-                  style={{ background: "#FFFFFF", border: "1px solid rgba(28,25,23,0.07)", borderRadius: "18px", padding: "32px 28px", boxShadow: "0 2px 10px rgba(28,25,23,0.06)", position: "relative", overflow: "hidden" }}
+                  style={{ background: "var(--bg-card)", border: "1px solid var(--border-subtle)", borderRadius: "18px", padding: "32px 28px", boxShadow: "0 2px 10px rgba(28,25,23,0.06)", position: "relative", overflow: "hidden" }}
                 >
                   {/* Step color accent line */}
                   <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: STEP_META[index].bg, borderRadius: "18px 18px 0 0" }} />
@@ -91,8 +91,8 @@ export default function HowItWorksSection() {
                     </div>
                   </motion.div>
 
-                  <h3 style={{ fontSize: "19px", fontWeight: 800, letterSpacing: "-0.04em", color: "#1C1917", marginBottom: "12px", lineHeight: 1.2 }}>{step.title}</h3>
-                  <p style={{ fontSize: "14px", lineHeight: 1.75, color: "#78716C" }}>{step.desc}</p>
+                  <h3 style={{ fontSize: "19px", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text-1)", marginBottom: "12px", lineHeight: 1.2 }}>{step.title}</h3>
+                  <p style={{ fontSize: "14px", lineHeight: 1.75, color: "var(--text-2b)" }}>{step.desc}</p>
 
                   {/* Animated progress bar */}
                   <div style={{ marginTop: "28px", height: "2px", background: "rgba(28,25,23,0.07)", borderRadius: "1px", overflow: "hidden" }}>
@@ -116,7 +116,7 @@ export default function HowItWorksSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          style={{ textAlign: "center", marginTop: "60px", fontSize: "13px", color: "#A8A29E", fontWeight: 500 }}
+          style={{ textAlign: "center", marginTop: "60px", fontSize: "13px", color: "var(--text-muted)", fontWeight: 500 }}
         >
           El diagnóstico es gratuito · 30 minutos · Sin compromiso
         </motion.p>

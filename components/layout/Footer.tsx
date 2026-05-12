@@ -1,11 +1,15 @@
 "use client"
 
+import { useState } from "react"
 import { useTranslations } from "next-intl"
 import { Link } from "@/i18n/navigation"
 import SenyLogo from "@/components/ui/SenyLogo"
+import { IconArrowRight } from "@tabler/icons-react"
 
 export default function Footer() {
   const t = useTranslations("footer")
+  const [email, setEmail] = useState("")
+  const [submitted, setSubmitted] = useState(false)
 
   const serviceLinks = (t.raw("links_services") as string[]).map(
     (label, i) => {
@@ -24,12 +28,19 @@ export default function Footer() {
     return { label, href: hrefs[i] || "/" }
   })
 
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (email.trim()) {
+      setSubmitted(true)
+    }
+  }
+
   return (
     <footer
       style={{
         background: "#16120E",
         borderTop: "1px solid rgba(255,255,255,0.06)",
-        padding: "64px 0 32px",
+        padding: "80px 0 32px",
       }}
     >
       <div
@@ -39,6 +50,107 @@ export default function Footer() {
           padding: "0 24px",
         }}
       >
+        {/* Newsletter strip */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr auto",
+            gap: "40px",
+            alignItems: "center",
+            padding: "36px 40px",
+            background: "rgba(196,103,58,0.06)",
+            border: "1px solid rgba(196,103,58,0.14)",
+            borderRadius: "16px",
+            marginBottom: "64px",
+            flexWrap: "wrap",
+          }}
+          className="grid-cols-1 lg:grid-cols-[1fr_auto]"
+        >
+          <div>
+            <p style={{ fontSize: "13px", fontWeight: 800, color: "#FAF9F7", letterSpacing: "-0.02em", marginBottom: "4px" }}>
+              Novedades Seny — sin spam
+            </p>
+            <p style={{ fontSize: "12px", color: "rgba(250,249,247,0.36)", lineHeight: 1.6 }}>
+              Casos reales, tips de hostelería y cuando lancemos nuevas funcionalidades.
+            </p>
+          </div>
+
+          {submitted ? (
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "11px 20px",
+              background: "rgba(42,122,87,0.12)",
+              border: "1px solid rgba(42,122,87,0.22)",
+              borderRadius: "9px",
+              whiteSpace: "nowrap",
+            }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2A7A57" strokeWidth="3" strokeLinecap="round"><path d="M20 6L9 17l-5-5" /></svg>
+              <span style={{ fontSize: "12px", fontWeight: 700, color: "#2A7A57" }}>¡Apuntado!</span>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleNewsletterSubmit}
+              style={{ display: "flex", gap: "8px", flexShrink: 0 }}
+            >
+              <input
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="tu@email.com"
+                required
+                style={{
+                  padding: "10px 16px",
+                  background: "rgba(250,249,247,0.05)",
+                  border: "1px solid rgba(250,249,247,0.12)",
+                  borderRadius: "8px",
+                  color: "#FAF9F7",
+                  fontSize: "13px",
+                  fontFamily: "inherit",
+                  outline: "none",
+                  width: "200px",
+                  transition: "border-color 0.2s",
+                }}
+                onFocus={e => (e.target.style.borderColor = "rgba(196,103,58,0.50)")}
+                onBlur={e => (e.target.style.borderColor = "rgba(250,249,247,0.12)")}
+              />
+              <button
+                type="submit"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "10px 18px",
+                  background: "#C4673A",
+                  border: "none",
+                  borderRadius: "8px",
+                  color: "#fff",
+                  fontSize: "12.5px",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  fontFamily: "inherit",
+                  whiteSpace: "nowrap",
+                  transition: "background 0.18s ease, transform 0.15s ease",
+                }}
+                onMouseEnter={e => {
+                  const el = e.currentTarget
+                  el.style.background = "#9E5230"
+                  el.style.transform = "translateY(-1px)"
+                }}
+                onMouseLeave={e => {
+                  const el = e.currentTarget
+                  el.style.background = "#C4673A"
+                  el.style.transform = ""
+                }}
+              >
+                Suscribirme
+                <IconArrowRight size={13} />
+              </button>
+            </form>
+          )}
+        </div>
+
         {/* Top grid */}
         <div
           style={{
@@ -58,11 +170,12 @@ export default function Footer() {
             <p
               style={{
                 marginTop: "16px",
-                fontSize: "14px",
-                lineHeight: 1.72,
-                color: "rgba(250,249,247,0.38)",
+                fontSize: "13.5px",
+                lineHeight: 1.75,
+                color: "rgba(250,249,247,0.36)",
                 maxWidth: "280px",
                 fontStyle: "italic",
+                fontFamily: "'Fraunces', Georgia, serif",
               }}
             >
               &ldquo;{t("tagline")}&rdquo;
@@ -77,6 +190,7 @@ export default function Footer() {
             >
               <a
                 href="mailto:hola@senyops.com"
+                className="link-underline"
                 style={{
                   fontSize: "12px",
                   color: "rgba(250,249,247,0.35)",
@@ -84,12 +198,10 @@ export default function Footer() {
                   transition: "color 0.2s",
                 }}
                 onMouseEnter={(e) =>
-                  ((e.target as HTMLElement).style.color =
-                    "rgba(250,249,247,0.70)")
+                  ((e.target as HTMLElement).style.color = "rgba(250,249,247,0.70)")
                 }
                 onMouseLeave={(e) =>
-                  ((e.target as HTMLElement).style.color =
-                    "rgba(250,249,247,0.35)")
+                  ((e.target as HTMLElement).style.color = "rgba(250,249,247,0.35)")
                 }
               >
                 hola@senyops.com
@@ -177,6 +289,7 @@ function FooterColumn({
           <li key={href}>
             <Link
               href={href}
+              className="link-underline"
               style={{
                 fontSize: "13px",
                 color: "rgba(250,249,247,0.40)",
@@ -184,12 +297,10 @@ function FooterColumn({
                 transition: "color 0.2s",
               }}
               onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLElement).style.color =
-                  "rgba(250,249,247,0.78)")
+                ((e.currentTarget as HTMLElement).style.color = "rgba(250,249,247,0.78)")
               }
               onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLElement).style.color =
-                  "rgba(250,249,247,0.40)")
+                ((e.currentTarget as HTMLElement).style.color = "rgba(250,249,247,0.40)")
               }
             >
               {label}

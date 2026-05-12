@@ -98,21 +98,22 @@ function TechPill({ name, sub, logo }: { name: string; sub: string; logo: React.
         alignItems: "center",
         gap: "10px",
         padding: "10px 18px",
-        background: "#FFFFFF",
-        border: "1px solid rgba(28,25,23,0.08)",
+        background: "var(--pill-bg)",
+        border: "1px solid var(--pill-border)",
         borderRadius: "10px",
         marginRight: "10px",
         flexShrink: 0,
         whiteSpace: "nowrap",
         boxShadow: "0 1px 4px rgba(28,25,23,0.05)",
+        transition: "background 0.25s ease, border-color 0.25s ease",
       }}
     >
       <div style={{ width: "22px", height: "22px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
         {logo}
       </div>
       <div>
-        <div style={{ fontSize: "12.5px", fontWeight: 700, color: "#1C1917", letterSpacing: "-0.1px", lineHeight: 1.2 }}>{name}</div>
-        <div style={{ fontSize: "9px", fontWeight: 600, color: "#A8A29E", letterSpacing: "0.05em", textTransform: "uppercase" }}>{sub}</div>
+        <div style={{ fontSize: "12.5px", fontWeight: 700, color: "var(--pill-text)", letterSpacing: "-0.1px", lineHeight: 1.2 }}>{name}</div>
+        <div style={{ fontSize: "9px", fontWeight: 600, color: "var(--pill-sub)", letterSpacing: "0.05em", textTransform: "uppercase" }}>{sub}</div>
       </div>
     </div>
   )
@@ -125,11 +126,12 @@ export default function TechMarquee() {
   return (
     <section
       style={{
-        background: "#FAF9F7",
+        background: "var(--bg-page)",
         padding: "60px 0",
-        borderTop: "1px solid rgba(28,25,23,0.07)",
+        borderTop: "1px solid var(--border-subtle)",
         overflow: "hidden",
         position: "relative",
+        transition: "background 0.25s ease",
       }}
     >
       {/* Label */}
@@ -153,29 +155,29 @@ export default function TechMarquee() {
 
       {/* Marquee track */}
       <div style={{ position: "relative", overflow: "hidden" }}>
-        {/* Fade edges */}
+        {/* Fade edges — theme-aware via CSS class */}
         <div
           aria-hidden="true"
+          className="marquee-fade-left"
           style={{
             position: "absolute",
             left: 0,
             top: 0,
             bottom: 0,
             width: "120px",
-            background: "linear-gradient(to right, #FAF9F7, transparent)",
             zIndex: 2,
             pointerEvents: "none",
           }}
         />
         <div
           aria-hidden="true"
+          className="marquee-fade-right"
           style={{
             position: "absolute",
             right: 0,
             top: 0,
             bottom: 0,
             width: "120px",
-            background: "linear-gradient(to left, #FAF9F7, transparent)",
             zIndex: 2,
             pointerEvents: "none",
           }}

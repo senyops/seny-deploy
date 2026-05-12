@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { getLocale } from "next-intl/server"
+import { ThemeProvider } from "@/components/providers/ThemeProvider"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -19,12 +20,13 @@ export default async function RootLayout({
         style={{
           fontFamily:
             "'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif",
-          background: "#FAF9F7",
-          color: "#1C1917",
+          background: "var(--bg-page)",
+          color: "var(--text-1)",
           minHeight: "100vh",
+          transition: "background 0.25s ease, color 0.25s ease",
         }}
       >
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   )

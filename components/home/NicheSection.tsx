@@ -22,8 +22,8 @@ function NicheCard({ category, title, pain, solution, price, ctaLabel, ctaHref, 
       spotlightColor={`${accent}22`}
       tiltDeg={5}
       style={{
-        background: "#FFFFFF",
-        border: "1px solid rgba(28,25,23,0.08)",
+        background: "var(--bg-card)",
+        border: "1px solid var(--border-card)",
         borderRadius: "18px",
         overflow: "hidden",
         display: "flex",
@@ -41,26 +41,26 @@ function NicheCard({ category, title, pain, solution, price, ctaLabel, ctaHref, 
             <span style={{ display: "inline-flex", fontSize: "9px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: accent, padding: "3px 10px", background: `${accent}14`, border: `1px solid ${accent}28`, borderRadius: "4px" }}>
               {category}
             </span>
-            <div style={{ width: "44px", height: "44px", borderRadius: "12px", background: "#FFFFFF", border: `1px solid ${accent}20`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: accent, boxShadow: "0 2px 8px rgba(28,25,23,0.07)" }}>
+            <div style={{ width: "44px", height: "44px", borderRadius: "12px", background: "var(--bg-card)", border: `1px solid ${accent}20`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, color: accent, boxShadow: "0 2px 8px rgba(28,25,23,0.07)" }}>
               {icon}
             </div>
           </div>
-          <h3 style={{ fontSize: large ? "21px" : "17px", fontWeight: 800, letterSpacing: "-0.04em", color: "#1C1917", lineHeight: 1.22 }}>{title}</h3>
+          <h3 style={{ fontSize: large ? "21px" : "17px", fontWeight: 800, letterSpacing: "-0.04em", color: "var(--text-1)", lineHeight: 1.22 }}>{title}</h3>
           {illustrationSlot}
         </div>
       </div>
 
       {/* Body */}
       <div style={{ padding: large ? "24px 28px" : "20px 24px", flex: 1, display: "flex", flexDirection: "column", position: "relative", zIndex: 2 }}>
-        <div style={{ background: "#FEF2F2", border: "1px solid rgba(194,59,59,0.10)", borderLeft: "3px solid #C23B3B", borderRadius: "6px", padding: "12px 14px", marginBottom: "14px" }}>
+        <div style={{ background: "var(--pain-bg)", border: "1px solid rgba(194,59,59,0.10)", borderLeft: "3px solid #C23B3B", borderRadius: "6px", padding: "12px 14px", marginBottom: "14px" }}>
           <p style={{ fontSize: "8.5px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#C23B3B", marginBottom: "5px" }}>Dónde sangra</p>
-          <p style={{ fontSize: "13px", lineHeight: 1.65, color: "#7A2020" }}>{pain}</p>
+          <p style={{ fontSize: "13px", lineHeight: 1.65, color: "var(--pain-text)" }}>{pain}</p>
         </div>
-        <div style={{ background: "rgba(42,122,87,0.05)", border: "1px solid rgba(42,122,87,0.10)", borderLeft: "3px solid #2A7A57", borderRadius: "6px", padding: "12px 14px", marginBottom: "20px", flex: 1 }}>
+        <div style={{ background: "var(--sol-bg)", border: "1px solid rgba(42,122,87,0.10)", borderLeft: "3px solid #2A7A57", borderRadius: "6px", padding: "12px 14px", marginBottom: "20px", flex: 1 }}>
           <p style={{ fontSize: "8.5px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#2A7A57", marginBottom: "5px" }}>La solución Seny</p>
-          <p style={{ fontSize: "13px", lineHeight: 1.65, color: "#1C6644" }}>{solution}</p>
+          <p style={{ fontSize: "13px", lineHeight: 1.65, color: "var(--sol-text)" }}>{solution}</p>
         </div>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "16px", borderTop: "1px solid rgba(28,25,23,0.06)" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "16px", borderTop: "1px solid var(--border-card)" }}>
           <span style={{ fontSize: "13px", fontWeight: 800, color: "#2A7A57", letterSpacing: "-0.2px" }}>{price}</span>
           <Link href={ctaHref} style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "12.5px", fontWeight: 700, color: accent, textDecoration: "none", cursor: "pointer", transition: "gap 0.18s cubic-bezier(.165,.84,.44,1)" }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.gap = "10px" }}
@@ -82,7 +82,7 @@ function LangBadges() {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 + i * 0.09, duration: 0.35, ease: EASE_OUT_QUART }}
-          style={{ background: i === 0 ? "#C4673A" : "#fff", border: `1px solid ${i === 0 ? "#C4673A" : "rgba(28,25,23,0.10)"}`, borderRadius: "6px", padding: "5px 11px", fontSize: "10px", fontWeight: 800, color: i === 0 ? "#fff" : "#1C1917", letterSpacing: "0.05em", boxShadow: i === 0 ? "0 2px 10px rgba(196,103,58,0.32)" : "0 1px 4px rgba(28,25,23,0.06)" }}>
+          style={{ background: i === 0 ? "#C4673A" : "var(--bg-card)", border: `1px solid ${i === 0 ? "#C4673A" : "var(--border-card)"}`, borderRadius: "6px", padding: "5px 11px", fontSize: "10px", fontWeight: 800, color: i === 0 ? "#fff" : "var(--text-1)", letterSpacing: "0.05em", boxShadow: i === 0 ? "0 2px 10px rgba(196,103,58,0.32)" : "0 1px 4px rgba(28,25,23,0.06)" }}>
           {lang}
         </motion.div>
       ))}
@@ -141,14 +141,8 @@ export default function NicheSection() {
   const t = useTranslations("niches")
   const shouldReduce = useReducedMotion()
 
-  const items = [
-    { key: "hotels", accent: "#C4673A", icon: <IconBuildingSkyscraper size={20} />, href: "/servicios#hoteleria", illustration: <HotelWidget />, large: true },
-    { key: "restaurants", accent: "#9E5230", icon: <IconBowlSpoon size={20} />, href: "/servicios#restaurantes", illustration: <LangBadges /> },
-    { key: "clinics", accent: "#2A7A57", icon: <IconActivityHeartbeat size={20} />, href: "/servicios#clinicas", illustration: <ClinicWidget /> },
-  ] as const
-
   return (
-    <section style={{ background: "#FAF9F7", padding: "120px 0" }}>
+    <section style={{ background: "var(--bg-page)", padding: "120px 0" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
         <motion.div
           initial={{ opacity: 0, y: 22 }}
@@ -159,8 +153,8 @@ export default function NicheSection() {
         >
           <p style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#C4673A", marginBottom: "18px" }}>{t("eyebrow")}</p>
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "20px" }}>
-            <h2 style={{ fontSize: "clamp(34px, 3.8vw, 56px)", fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 1.04, color: "#1C1917", maxWidth: "540px" }}>{t("heading")}</h2>
-            <p style={{ fontSize: "14px", color: "#78716C", maxWidth: "260px", lineHeight: 1.72 }}>Tres nichos. Un método. Resultados medibles desde el primer mes.</p>
+            <h2 style={{ fontSize: "clamp(34px, 3.8vw, 56px)", fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 1.04, color: "var(--text-1)", maxWidth: "540px" }}>{t("heading")}</h2>
+            <p style={{ fontSize: "14px", color: "var(--text-2b)", maxWidth: "260px", lineHeight: 1.72 }}>Tres nichos. Un método. Resultados medibles desde el primer mes.</p>
           </div>
         </motion.div>
 

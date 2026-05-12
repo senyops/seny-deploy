@@ -1,4 +1,4 @@
-@import url('https://fonts.google.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fraunces:ital,wght@1,300;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -18,6 +18,7 @@
   --color-amber: #C88A0A;
   --color-espresso: #16120E;
   --font-sans: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -36,6 +37,59 @@
   --dur-2: 180ms;
   --dur-3: 240ms;
   --dur-4: 300ms;
+}
+
+/* ── Theme tokens (light default) ─────────────────── */
+:root {
+  --bg-page: #FAF9F7;
+  --bg-alt: #F3F0EC;
+  --bg-card: #FFFFFF;
+  --bg-inset: #EBE6DF;
+  --border-card: rgba(28,25,23,0.08);
+  --border-subtle: rgba(28,25,23,0.07);
+  --text-1: #1C1917;
+  --text-2: #57534E;
+  --text-2b: #78716C;
+  --text-muted: #A8A29E;
+  --pain-bg: #FEF2F2;
+  --pain-text: #7A2020;
+  --sol-bg: rgba(42,122,87,0.05);
+  --sol-text: #1C6644;
+  --faq-border: rgba(22,18,14,0.08);
+  --faq-q: #16120E;
+  --faq-a: rgba(22,18,14,0.55);
+  --pill-bg: #FFFFFF;
+  --pill-border: rgba(28,25,23,0.08);
+  --pill-text: #1C1917;
+  --pill-sub: #A8A29E;
+  --marquee-fade: #FAF9F7;
+  --pricing-non-popular-bg: #FFFFFF;
+}
+
+html.dark {
+  --bg-page: #16120E;
+  --bg-alt: #1C1512;
+  --bg-card: #1C1512;
+  --bg-inset: #231A14;
+  --border-card: rgba(250,249,247,0.08);
+  --border-subtle: rgba(250,249,247,0.07);
+  --text-1: #F5F2EF;
+  --text-2: #B8AFA8;
+  --text-2b: #9E968F;
+  --text-muted: #6E6560;
+  --pain-bg: rgba(194,59,59,0.10);
+  --pain-text: #F0A0A0;
+  --sol-bg: rgba(42,122,87,0.10);
+  --sol-text: #7ED4A8;
+  --faq-border: rgba(250,249,247,0.08);
+  --faq-q: #F5F2EF;
+  --faq-a: rgba(250,249,247,0.55);
+  --pill-bg: rgba(250,249,247,0.04);
+  --pill-border: rgba(250,249,247,0.08);
+  --pill-text: #F5F2EF;
+  --pill-sub: #7A7068;
+  --marquee-fade: #16120E;
+  --pricing-non-popular-bg: #1C1512;
 }
 
 /* ── Base ─────────────────────────────────────────── */
@@ -143,4 +197,54 @@ body {
   .btn-shimmer::after {
     display: none;
   }
+}
+
+/* ── Pricing card animated gradient border ──────── */
+@keyframes pricing-border-sweep {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.pricing-popular-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #C4673A 0%, #C88A0A 40%, #C4673A 70%, #9E5230 100%);
+  background-size: 300% 300%;
+  animation: pricing-border-sweep 4s ease infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Marquee fade edges (theme-aware) ───────────── */
+.marquee-fade-left {
+  background: linear-gradient(to right, var(--marquee-fade), transparent);
+}
+.marquee-fade-right {
+  background: linear-gradient(to left, var(--marquee-fade), transparent);
+}
+
+/* ── Underline hover animation ──────────────────── */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.25s cubic-bezier(.165,.84,.44,1);
+}
+.link-underline:hover::after {
+  width: 100%;
 }

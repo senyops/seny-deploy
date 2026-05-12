@@ -65,8 +65,8 @@ function PricingCard({
         spotlightColor={`${accent}20`}
         tiltDeg={4}
         style={{
-          background: isPopular ? "#16120E" : "#FFFFFF",
-          border: isPopular ? `1.5px solid ${accent}44` : "1.5px solid rgba(28,25,23,0.08)",
+          background: isPopular ? "#16120E" : "var(--pricing-non-popular-bg)",
+          border: isPopular ? `1.5px solid ${accent}44` : "1.5px solid var(--border-card)",
           borderRadius: "20px",
           overflow: "hidden",
           display: "flex",
@@ -79,6 +79,11 @@ function PricingCard({
           transition: "box-shadow 0.3s ease, transform 0.3s ease",
         }}
       >
+        {/* Popular: animated gradient border */}
+        {isPopular && !reduced && (
+          <div className="pricing-popular-border" aria-hidden="true" />
+        )}
+
         {/* Popular badge */}
         {isPopular && (
           <div style={{
@@ -93,6 +98,7 @@ function PricingCard({
             textTransform: "uppercase",
             padding: "4px 10px",
             borderRadius: "99px",
+            zIndex: 2,
           }}>
             {badgeLabel}
           </div>
@@ -114,8 +120,8 @@ function PricingCard({
         <div style={{
           padding: "28px 28px 22px",
           borderBottom: isPopular
-            ? `1px solid rgba(250,249,247,0.07)`
-            : "1px solid rgba(28,25,23,0.06)",
+            ? "1px solid rgba(250,249,247,0.07)"
+            : "1px solid var(--border-card)",
         }}>
           <div style={{ display: "flex", alignItems: "flex-start", gap: "14px", marginBottom: "16px" }}>
             <div style={{
@@ -147,7 +153,7 @@ function PricingCard({
                 fontSize: "17px",
                 fontWeight: 800,
                 letterSpacing: "-0.04em",
-                color: isPopular ? "#FAF9F7" : "#16120E",
+                color: isPopular ? "#FAF9F7" : "var(--text-1)",
                 lineHeight: 1.2,
               }}>
                 {product.name}
@@ -157,7 +163,7 @@ function PricingCard({
           <p style={{
             fontSize: "13px",
             lineHeight: 1.7,
-            color: isPopular ? "rgba(250,249,247,0.48)" : "rgba(22,18,14,0.52)",
+            color: isPopular ? "rgba(250,249,247,0.48)" : "var(--text-2)",
           }}>
             {product.tagline}
           </p>
@@ -168,14 +174,14 @@ function PricingCard({
           padding: "24px 28px",
           borderBottom: isPopular
             ? "1px solid rgba(250,249,247,0.07)"
-            : "1px solid rgba(28,25,23,0.06)",
+            : "1px solid var(--border-card)",
         }}>
           <div style={{ display: "flex", alignItems: "baseline", gap: "6px", marginBottom: "6px" }}>
             <span style={{
               fontSize: "42px",
               fontWeight: 800,
               letterSpacing: "-0.06em",
-              color: isPopular ? "#FAF9F7" : "#16120E",
+              color: isPopular ? "#FAF9F7" : "var(--text-1)",
               lineHeight: 1,
             }}>
               €{product.price_setup}
@@ -183,7 +189,7 @@ function PricingCard({
             <span style={{
               fontSize: "12px",
               fontWeight: 600,
-              color: isPopular ? "rgba(250,249,247,0.38)" : "rgba(22,18,14,0.38)",
+              color: isPopular ? "rgba(250,249,247,0.38)" : "var(--text-muted)",
               letterSpacing: "0.02em",
             }}>
               {setupLabel}
@@ -199,7 +205,7 @@ function PricingCard({
           <div style={{
             marginTop: "8px",
             fontSize: "10px",
-            color: isPopular ? "rgba(250,249,247,0.24)" : "rgba(22,18,14,0.28)",
+            color: isPopular ? "rgba(250,249,247,0.24)" : "var(--text-muted)",
             letterSpacing: "0.04em",
           }}>
             Entrega: {product.delivery}
@@ -228,7 +234,7 @@ function PricingCard({
                 <span style={{
                   fontSize: "12.5px",
                   lineHeight: 1.65,
-                  color: isPopular ? "rgba(250,249,247,0.55)" : "rgba(22,18,14,0.60)",
+                  color: isPopular ? "rgba(250,249,247,0.55)" : "var(--text-2)",
                 }}>
                   {feat}
                 </span>
@@ -292,10 +298,11 @@ export default function PricingSection() {
 
   return (
     <section style={{
-      background: "#FAF9F7",
+      background: "var(--bg-page)",
       padding: "120px 0",
       position: "relative",
       overflow: "hidden",
+      transition: "background 0.25s ease",
     }}>
       {/* Subtle warm grid */}
       <div aria-hidden="true" style={{
@@ -344,14 +351,14 @@ export default function PricingSection() {
             fontWeight: 800,
             letterSpacing: "-0.05em",
             lineHeight: 1.04,
-            color: "#16120E",
+            color: "var(--text-1)",
             marginBottom: "16px",
           }}>
             {t("heading")}
           </h2>
           <p style={{
             fontSize: "15px",
-            color: "rgba(22,18,14,0.48)",
+            color: "var(--text-2)",
             maxWidth: "440px",
             margin: "0 auto",
             lineHeight: 1.72,
@@ -388,7 +395,7 @@ export default function PricingSection() {
             textAlign: "center",
             marginTop: "40px",
             fontSize: "11px",
-            color: "rgba(22,18,14,0.32)",
+            color: "var(--text-muted)",
             letterSpacing: "0.03em",
           }}
         >

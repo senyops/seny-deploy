@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import { routing } from "@/i18n/routing"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
+import { LenisProvider } from "@/components/providers/LenisProvider"
 
 export default async function LocaleLayout({
   children,
@@ -19,9 +20,11 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
+      <LenisProvider>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </LenisProvider>
     </NextIntlClientProvider>
   )
 }

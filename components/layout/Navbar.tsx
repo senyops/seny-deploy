@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useTheme } from "next-themes"
 import { useTranslations } from "next-intl"
 import { usePathname, useRouter, Link } from "@/i18n/navigation"
 import { useParams } from "next/navigation"
@@ -9,6 +10,8 @@ import {
   IconMenu2,
   IconX,
   IconChevronDown,
+  IconSun,
+  IconMoon,
 } from "@tabler/icons-react"
 
 const LOCALES = [
@@ -26,9 +29,13 @@ export default function Navbar() {
   const params = useParams()
   const locale = params.locale as string
 
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => setMounted(true), [])
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -128,8 +135,47 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Right side: lang + CTA */}
+          {/* Right side: theme toggle + lang + CTA */}
           <div className="hidden md:flex items-center gap-3">
+            {/* Theme toggle */}
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label={theme === "dark" ? "Activar modo claro" : "Activar modo oscuro"}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "34px",
+                  height: "34px",
+                  background: "transparent",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  borderRadius: "8px",
+                  color: "rgba(250,249,247,0.55)",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                  flexShrink: 0,
+                }}
+                onMouseEnter={e => {
+                  const el = e.currentTarget
+                  el.style.color = "rgba(250,249,247,0.90)"
+                  el.style.borderColor = "rgba(255,255,255,0.22)"
+                  el.style.background = "rgba(255,255,255,0.06)"
+                }}
+                onMouseLeave={e => {
+                  const el = e.currentTarget
+                  el.style.color = "rgba(250,249,247,0.55)"
+                  el.style.borderColor = "rgba(255,255,255,0.12)"
+                  el.style.background = "transparent"
+                }}
+              >
+                {theme === "dark"
+                  ? <IconSun size={15} />
+                  : <IconMoon size={15} />
+                }
+              </button>
+            )}
+
             {/* Language selector */}
             <div style={{ position: "relative" }}>
               <button
